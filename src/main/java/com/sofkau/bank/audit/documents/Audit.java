@@ -21,21 +21,13 @@ import java.util.UUID;
 public class Audit {
     @Id
     private UUID id;
-
-    private OperationType operationType;
-
     private UUID sourceAccount;
-
     private UUID destinationAccount;
-
-    private BigDecimal beforeBalanceOnSource;
-
-    private BigDecimal afterBalanceOnSource;
-
-    private BigDecimal beforeBalanceOnDestination;
-
-    private BigDecimal afterBalanceOnDestination;
-
+    private OperationType operationType;
+    private BigDecimal sourceBalanceBeforeOperation;
+    private BigDecimal sourceBalanceAfterOperation;
+    private BigDecimal destinationBalanceBeforeOperation;
+    private BigDecimal destinationBalanceAfterOperation;
     private BigDecimal amount;
 
     @CreatedDate
