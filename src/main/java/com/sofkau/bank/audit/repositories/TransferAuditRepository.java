@@ -1,6 +1,6 @@
-package com.sofkau.bank.repositories;
+package com.sofkau.bank.audit.repositories;
 
-import com.sofkau.bank.documents.TransferAudit;
+import com.sofkau.bank.audit.documents.TransferAudit;
 import org.hibernate.validator.constraints.UUID;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 

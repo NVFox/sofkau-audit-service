@@ -1,4 +1,4 @@
-package com.sofkau.bank.documents;
+package com.sofkau.bank.audit.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,22 +16,16 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "transfer-audits")
-public class TransferAudit {
+@Document(collection = "deposit-audits")
+public class DepositAudit {
     @Id
     private UUID id;
 
-    private UUID sourceAccount;
-
     private UUID destinationAccount;
 
-    private BigDecimal beforeBalanceOnSource;
+    private BigDecimal beforeBalance;
 
-    private BigDecimal afterBalanceOnSource;
-
-    private BigDecimal beforeBalanceOnDestination;
-
-    private BigDecimal afterBalanceOnDestination;
+    private BigDecimal afterBalance;
 
     private BigDecimal amount;
 

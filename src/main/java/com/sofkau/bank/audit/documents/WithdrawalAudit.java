@@ -1,4 +1,4 @@
-package com.sofkau.bank.documents;
+package com.sofkau.bank.audit.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
-package com.sofkau.bank.repositories;
+package com.sofkau.bank.audit.repositories;
 
-import com.sofkau.bank.documents.DepositAudit;
+import com.sofkau.bank.audit.documents.DepositAudit;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 import java.util.UUID;
