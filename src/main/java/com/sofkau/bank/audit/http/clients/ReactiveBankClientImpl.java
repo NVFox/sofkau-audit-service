@@ -1,5 +1,6 @@
 package com.sofkau.bank.audit.http.clients;
 
+import com.sofkau.bank.audit.exceptions.OperationNotCommitedException;
 import com.sofkau.bank.audit.http.requests.DepositRequest;
 import com.sofkau.bank.audit.http.requests.TransferRequest;
 import com.sofkau.bank.audit.http.requests.WithdrawalRequest;
@@ -26,7 +27,7 @@ public class ReactiveBankClientImpl implements ReactiveBankClient {
                 .bodyValue(depositRequest, new ParameterizedTypeReference<>(){})
                 .exchangeToMono(response -> response.statusCode().is2xxSuccessful()
                         ? response.bodyToMono(GetTransactionResponse.class)
-                        : response.createError());
+                        : Mono.error(new OperationNotCommitedException("Deposit operation could not be committed")));
     }
 
     @Override
@@ -37,7 +38,7 @@ public class ReactiveBankClientImpl implements ReactiveBankClient {
                 .bodyValue(withdrawalRequest, new ParameterizedTypeReference<>(){})
                 .exchangeToMono(response -> response.statusCode().is2xxSuccessful()
                         ? response.bodyToMono(GetTransactionResponse.class)
-                        : response.createError());
+                        : Mono.error(new OperationNotCommitedException("Withdrawal operation could not be committed")));
     }
 
     @Override
@@ -48,6 +49,6 @@ public class ReactiveBankClientImpl implements ReactiveBankClient {
                 .bodyValue(transferRequest, new ParameterizedTypeReference<>(){})
                 .exchangeToMono(response -> response.statusCode().is2xxSuccessful()
                         ? response.bodyToMono(GetTransactionResponse.class)
-                        : response.createError());
+                        : Mono.error(new OperationNotCommitedException("Transfer operation could not be committed")));
     }
 }
