@@ -3,12 +3,11 @@ package com.sofkau.bank.audit.http.responses;
 import com.sofkau.bank.audit.types.OperationType;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public record GetAuditResponse(
-        UUID id,
-        UUID sourceAccount,
-        UUID destinationAccount,
+        String id,
+        String sourceAccount,
+        String destinationAccount,
         OperationType operationType,
         BigDecimal sourceBalanceBeforeOperation,
         BigDecimal sourceBalanceAfterOperation,

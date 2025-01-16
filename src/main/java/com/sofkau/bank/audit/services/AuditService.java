@@ -16,7 +16,7 @@ public class AuditService {
     private final AuditRepository auditRepository;
 
     public Flux<Audit> findAllByAccount(@NonNull UUID account) {
-        return auditRepository.findAllByAccount(account);
+        return auditRepository.findAllByAccount(account.toString());
     }
 
     public Mono<Audit> create(@NonNull Audit audit) {

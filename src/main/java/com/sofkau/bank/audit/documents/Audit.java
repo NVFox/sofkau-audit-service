@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -20,9 +19,9 @@ import java.util.UUID;
 @Document(collection = "audits")
 public class Audit {
     @Id
-    private UUID id;
-    private UUID sourceAccount;
-    private UUID destinationAccount;
+    private String id;
+    private String sourceAccount;
+    private String destinationAccount;
     private OperationType operationType;
     private BigDecimal sourceBalanceBeforeOperation;
     private BigDecimal sourceBalanceAfterOperation;
